@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Seller Screen</title>
+ <script src="http://localhost:7798/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:7798/');
+
+  socket.emit('addUser', 1);
+
+  socket.on('showBidToUser', function (userId) {
+
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode("hello user"+userId+" new bid offer of $15000.");
+    node.appendChild(textnode);
+    document.getElementById("bidAlerts").appendChild(node);
+
+
+  });
+
+</script>
+
+
+</head>
+
+<body>
+  <ul id="bidAlerts">
+
+</ul>
+</body>
+
+</html>
